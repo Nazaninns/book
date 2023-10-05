@@ -24,8 +24,14 @@ class UpdateBookRequest extends FormRequest
     public function rules(): array
     {
 
+        //dd($this->route());
+        // hamasho bebinid chie
+        // dd($this->route()->originalParameter('book'));
+        // dd($this->route()->originalParameters());
+        //dd $this->route('book')->id
         return [
-            'name' => ['required'],
+//            'name' => ['required', Rule::unique('books', 'name')->ignore($this->route('book')->id)],
+            'name' => ['required', Rule::unique('books', 'name')->ignore($this->route()->originalParameter('book'))],
             'isbn' => ['required'],
             'price' => ['required']
         ];
