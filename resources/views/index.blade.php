@@ -4,6 +4,8 @@
         <div>
             <label>name:</label>
             {{$book->name}}<br>
+            <label>isbn:</label>
+            {{$book->isbn}}<br>
             <label>price:</label>
             {{$book->price}}
             <form method="get" action="{{ route('books.edit',$book) }}">

@@ -13,8 +13,10 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('index', ['books' => Book::query()->paginate(5)]);
-
+        return view('index', [
+            'books' => Book::query()->paginate(5)
+            ]
+        );
     }
 
     /**
