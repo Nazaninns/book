@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Book;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateBookRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class UpdateBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +23,11 @@ class UpdateBookRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
-            //
+            'name' => ['required'],
+            'isbn' => ['required'],
+            'price' => ['required']
         ];
     }
 }
